@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpotiFake</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">🎵 SpotiFake</div>
+      <nav>
+        <a class="nav-item active" href="#home">Domů</a>
+        <a class="nav-item" href="#trending">Trendy</a>
+        <a class="nav-item" href="#playlists">Playlisty</a>
+        <a class="nav-item" href="#library">Knihovna</a>
+      </nav>
+      <div class="credits">UI demo · © <span id="year"></span></div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <input id="search" class="search" placeholder="Hledat skladby, alba, interprety…" />
+        <button id="themeBtn" class="btn">🌙 Tma/Světlo</button>
+      </header>
+
+      <section class="section">
+        <h2>Doporučené</h2>
+        <div id="cards" class="card-grid">
+          <!-- naplní JS -->
+        </div>
+      </section>
+
+      <section class="section" id="trending">
+        <h2>Trendy</h2>
+        <div id="trendingGrid" class="card-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="player">
+    <div class="now-playing">
+      <img id="cover" src="assets/covers/placeholder.jpg" alt="cover"/>
+      <div>
+        <div id="trackTitle">Vyber skladbu…</div>
+        <div id="trackArtist" class="muted">—</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="prevBtn" class="icon">⏮️</button>
+      <button id="playBtn" class="icon">▶️</button>
+      <button id="nextBtn" class="icon">⏭️</button>
+    </div>
+    <div class="progress">
+      <span id="time">0:00</span>
+      <input id="seek" type="range" min="0" max="100" value="0" />
+      <span id="duration">0:00</span>
+    </div>
+    <audio id="audio"></audio>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
