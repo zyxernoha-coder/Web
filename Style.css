@@ -1,0 +1,61 @@
+:root {
+  --bg: #0f0f10;
+  --bg-soft: #1b1b1f;
+  --text: #f2f2f2;
+  --muted: #9aa0a6;
+  --accent: #1db954; /* "spotify" zelená – klidně změň */
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; font-family: Inter, system-ui, Arial, sans-serif; color: var(--text);
+  background: var(--bg);
+}
+.app { display: grid; grid-template-columns: 260px 1fr; height: 100dvh; }
+.sidebar {
+  background: var(--bg-soft); padding: 18px; display: flex; flex-direction: column; gap: 12px;
+}
+.logo { font-weight: 800; font-size: 20px; }
+.nav-item { display: block; padding: 10px 12px; color: var(--text); text-decoration: none; border-radius: 10px; }
+.nav-item:hover { background: #2a2a30; }
+.nav-item.active { background: #2f3136; }
+.credits { margin-top: auto; color: var(--muted); font-size: 12px; }
+
+.content { overflow: auto; }
+.topbar { position: sticky; top: 0; background: linear-gradient(#0f0f10, transparent); padding: 16px; display: flex; gap: 10px; align-items: center; }
+.search { flex: 1; padding: 10px 12px; border-radius: 12px; border: 1px solid #2a2a30; background: #121216; color: var(--text); }
+.btn { padding: 10px 12px; border-radius: 12px; border: 1px solid #2a2a30; background: #121216; color: var(--text); cursor: pointer; }
+.section { padding: 0 16px 24px; }
+.section h2 { margin: 8px 0 12px; }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+.card { background: #16161a; border: 1px solid #22232a; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 8px; cursor: pointer; transition: transform .15s ease; }
+.card:hover { transform: translateY(-2px); }
+.card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
+.card .title { font-weight: 600; }
+.card .muted { color: var(--muted); font-size: 12px; }
+
+.player { position: fixed; left: 260px; right: 0; bottom: 0; height: 84px; background: #111115; border-top: 1px solid #24242a; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; padding: 10px 16px; gap: 12px; }
+.now-playing { display: flex; align-items: center; gap: 12px; }
+.now-playing img { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; }
+.controls { display: flex; gap: 10px; justify-content: center; }
+.icon { font-size: 20px; background: #1a1a1f; border: 0; border-radius: 12px; padding: 8px 12px; color: var(--text); cursor: pointer; }
+.progress { display: flex; align-items: center; gap: 8px; }
+#seek { width: 100%; }
+.muted { color: var(--muted); }
+
+/* Mobilní rozvržení */
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .player { left: 0; grid-template-columns: 1fr; height: auto; gap: 8px; padding-bottom: 14px; }
+}
+
+/* Světlý režim */
+.light {
+  --bg: #f6f7fb; --bg-soft: #fff; --text: #0f1115; --muted: #5f6368; --accent: #0f9d58;
+}
+.light .nav-item:hover { background: #f0f2f7; }
+.light .nav-item.active { background: #e8eaf2; }
+.light .card { background: #ffffff; border-color: #e8eaf2; }
+.light .player { background: #fff; border-top-color: #e8eaf2; }
